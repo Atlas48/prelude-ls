@@ -25,6 +25,9 @@ empty = (object) ->
   for x of object then return false
   true
 
+pick = (array, object) ->
+  {[key,value] for o of object when array.index-of(key) isnt -1 or object.has-own-property key}
+
 each = (f, object) -->
   for , x of object then f x
   object
@@ -56,5 +59,5 @@ module.exports = {
   values, keys,
   pairs-to-obj, obj-to-pairs, lists-to-obj, obj-to-lists,
 
-  empty, each, map, filter, compact, reject, partition, find,
+  empty, each, map, filter, compact, reject, partition, pick, find,
 }
